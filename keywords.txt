@@ -9,7 +9,7 @@
 #################################################
 # Methods and Functions (KEYWORD2)
 #################################################
-temperature               KEYWORD2
+temperature	KEYWORD2
 
 #################################################
 # Constants (LITERAL1)
