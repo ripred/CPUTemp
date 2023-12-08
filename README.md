@@ -9,7 +9,7 @@ NO external parts necessary.  All that is needed is the Atmel micro controller. 
 Example use:
 
 #
-```
+```cpp
     #include <CPUTemp.h>
     
     // We don't need a setup and a loop function so we just use a single main:
