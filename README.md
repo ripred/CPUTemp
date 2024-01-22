@@ -1,3 +1,9 @@
+[![Arduino CI](https://github.com/ripred/CPUTemp/workflows/Arduino%20CI/badge.svg)](https://github.com/marketplace/actions/arduino_ci)
+[![Arduino-lint](https://github.com/ripred/CPUTemp/actions/workflows/arduino-lint.yml/badge.svg)](https://github.com/ripred/CPUTemp/actions/workflows/arduino-lint.yml)
+![code size:](https://img.shields.io/github/languages/code-size/ripred/CPUTemp)
+[![GitHub release](https://img.shields.io/github/release/ripred/CPUTemp.svg?maxAge=3600)](https://github.com/ripred/CPUTemp/releases)
+[![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/ripred/CPUTemp/blob/master/LICENSE)
+
 # CPU Temperature
 
 ### Measure the internal temperature of the processor.
