@@ -8,9 +8,9 @@
 
 ### Measure the internal temperature of the processor.
 
-Retrieve the temperature of the internal ATMega328 processor using nothing more than the internal registers.
+Retrieve the temperature of the internal ATMega328 processor using nothing more than the internal registers!
 
-NO external parts or connectins are necessary.  All that is needed is the Atmel microcontroller itself.  That's it.
+Absolutely NO external parts or connectins are necessary.  All that is needed is the Atmel microcontroller itself.  That's it.
 
 Example use:
 
