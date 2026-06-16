@@ -6,40 +6,46 @@
 
 # CPU Temperature
 
-### Measure the internal temperature of the processor.
+Read the internal temperature sensor on supported AVR microcontrollers using only the processor's internal ADC and temperature sensor. No external parts or connections are required.
 
-Retrieve the temperature of the internal ATMega328 processor using nothing more than the internal registers!
+## Compatibility
 
-Absolutely NO external parts or connections are necessary.  All that is needed is the Atmel microcontroller itself.  That's it.
+CPUTemp uses AVR-specific ADC registers and is intended for ATmega328P-style internal temperature sensing. The library is not compatible with non-AVR architectures such as SAMD, ESP32, Renesas, Zephyr, or megaAVR boards.
 
-Example use:
+## Usage
 
-#
-```cpp
     #include <CPUTemp.h>
-    
-    // We don't need a setup and a loop function so we just use a single main:
-    int main() {
+
+    void setup() {
         Serial.begin(115200);
-
-        // Read the processor temperature:
-        double temp = temperature();
-    
-        // Format it as a string to 2 decimal places:
-        char fstr[8];
-        dtostrf(temp, 6, 2, fstr);
-    
-        // Display it:
-        Serial.print("temperature: ");
-        Serial.println(fstr);
-    
-        return 0;
     }
-```
 
-output:
+    void loop() {
+        double tempC = temperature();
 
-#
-```
-    temperature: 96.70
-```
+        Serial.print("temperature: ");
+        Serial.print(tempC);
+        Serial.println(" C");
+
+        delay(1000);
+    }
+
+## Calibration
+
+The default call uses the nominal internal reference voltage:
+
+    double tempC = temperature();
+
+For better results, pass the measured ADC reference voltage and an optional temperature offset:
+
+    double tempC = temperature(1.056, 65.0);
+
+Function signature:
+
+    double temperature(double aref = 1.1, double offset = 0.0);
+
+- `aref`: actual ADC reference voltage in volts. The nominal default is `1.1`.
+- `offset`: correction added to the calculated temperature in degrees Celsius.
+
+The internal temperature sensor is useful for relative processor temperature changes, but it is not factory calibrated for precision temperature measurement. Per-chip calibration is recommended when absolute accuracy matters.
+
