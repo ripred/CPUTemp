@@ -10,8 +10,9 @@
 
 #include <avr/io.h>
 #include <Arduino.h>
+#include "CPUTemp.h"
 
-double temperature() {
+double temperature(double aref, double offset) {
     // The internal temperature has to be used
     // with the internal reference of 1.1V.
     // Channel 8 can not be selected with
@@ -31,8 +32,8 @@ double temperature() {
     // Reading register "ADCW" takes care of how to read ADCL and ADCH.
     uint16_t wADC = ADCW;
 
-    // The offset of 292.31 could be wrong. It is just an indication.
-    // The returned temperature is in degrees Celcius.
-    return (wADC - 292.31 ) / 1.22;
+    // Convert the ADC reading to sensor voltage, then apply the ATmega328P
+    // datasheet typical temperature curve. Offset allows chip calibration.
+    double sensorVoltage = ((double)wADC / 1023.0) * aref;
+    return (sensorVoltage * 942.485306465) - 272.388748950 + offset;
 }
-
