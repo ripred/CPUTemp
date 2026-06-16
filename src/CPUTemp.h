@@ -9,6 +9,6 @@
 #ifndef CPUTEMP_H_INC
 #define CPUTEMP_H_INC
 
-double temperature();
+double temperature(double aref = 1.1, double offset = 0.0);
 
 #endif
