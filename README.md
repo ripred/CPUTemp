@@ -3,6 +3,11 @@
 [![GitHub release](https://flat.badgen.net/github/release/ripred/CPUTemp)](https://github.com/ripred/CPUTemp/releases/latest)
 [![License: MIT](https://flat.badgen.net/github/license/ripred/CPUTemp)](https://github.com/ripred/CPUTemp/blob/main/LICENSE)
 
+[![JSON check](https://github.com/ripred/CPUTemp/actions/workflows/jsoncheck.yml/badge.svg)](https://github.com/ripred/CPUTemp/actions/workflows/jsoncheck.yml)
+[![Arduino Library Manager](https://www.ardu-badge.com/badge/CPUTemp.svg)](https://www.ardu-badge.com/CPUTemp)
+[![Stars](https://flat.badgen.net/github/stars/ripred/CPUTemp)](https://github.com/ripred/CPUTemp/stargazers)
+[![Forks](https://flat.badgen.net/github/forks/ripred/CPUTemp)](https://github.com/ripred/CPUTemp/network/members)
+
 # CPU Temperature
 
 Read the internal temperature sensor on supported AVR microcontrollers using only the processor's internal ADC and temperature sensor. No external parts or connections are required.
@@ -47,4 +52,3 @@ Function signature:
 - `offset`: correction added to the calculated temperature in degrees Celsius.
 
 The internal temperature sensor is useful for relative processor temperature changes, but it is not factory calibrated for precision temperature measurement. Per-chip calibration is recommended when absolute accuracy matters.
-
